@@ -5,14 +5,25 @@
   "repository": "git@github.com:HigorMatheus/clean-node-api.git",
   "author": "Higor Matheus Oliveira Vieira <hmoliveira83@gmail.com>",
   "license": "MIT",
-  "scripts": {},
+  "type": "module",
+  "scripts": {
+    "start": "tsx --watch src/index.ts",
+    "lint": "biome check --fix"
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "biome check --fix"
+      "pre-commit": "lint"
     }
   },
   "devDependencies": {
     "@biomejs/biome": "^2.3.6",
-    "husky": "^9.1.7"
+    "@types/node": "^24.10.1",
+    "husky": "^9.1.7",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.10"
+  },
+  "dependencies": {
+    "fastify": "^5.6.2"
   }
 }
