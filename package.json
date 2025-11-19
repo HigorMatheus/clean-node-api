@@ -8,8 +8,10 @@
   "type": "module",
   "scripts": {
     "start": "tsx --watch src/main/index.ts",
-    "test": "vitest",
-    "lint": "biome check --fix"
+    "test:watch": "vitest",
+    "test": "vitest run",
+    "lint": "biome check --fix",
+    "prepare": "husky"
   },
   "husky": {
     "hooks": {

@@ -28,4 +28,17 @@ describe("Login Router", () => {
 		expect(httpResponse.statusCode).toBe(400);
 		expect(httpResponse.body).toEqual({ error: "Missing param: password" });
 	});
+	it("should return 400 if no httpRequest is provided", () => {
+		const sut = new LoginRouter();
+		// @ts-expect-error
+		const httpResponse = sut.route();
+		expect(httpResponse.statusCode).toBe(500);
+	});
+
+	it("should return 500 if httpRequest has no body", () => {
+		const sut = new LoginRouter();
+		const httpRequest = {};
+		const httpResponse = sut.route(httpRequest);
+		expect(httpResponse.statusCode).toBe(500);
+	});
 });

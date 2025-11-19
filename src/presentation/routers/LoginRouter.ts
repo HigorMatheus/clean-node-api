@@ -1,5 +1,11 @@
 export class LoginRouter {
 	route(httpRequest: any): any {
+		if (!httpRequest || !httpRequest.body) {
+			return {
+				statusCode: 500,
+			};
+		}
+
 		if (!httpRequest.body.email) {
 			return {
 				statusCode: 400,
@@ -12,6 +18,5 @@ export class LoginRouter {
 				body: { error: "Missing param: password" },
 			};
 		}
-		// Additional routing logic will go here in the future
 	}
 }
